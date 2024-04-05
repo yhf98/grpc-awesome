@@ -1,0 +1,21 @@
+// 使用proto3语法
+syntax = "proto3";
+
+// 指定生成的go代码的包名【. 表示当前目录, 也可以指定绝对路径; service 表示包名】
+option go_package = ".;service";
+
+// 定义服务
+service TestHello {
+  rpc TestHello(HelloRequest) returns (HelloResponse);
+}
+
+// 定义请求
+message HelloRequest {
+  string name = 1;
+  int64 age = 2;
+}
+
+// 定义响应
+message HelloResponse {
+  string message = 1;
+} 
